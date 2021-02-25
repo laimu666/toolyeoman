@@ -6,11 +6,11 @@ module.exports = class extends Generator {
     super(args, opts);
   }
 
-  method1() {
-    this.log('method 1 just ran');
-  }
-
-  method2() {
-    this.log('method 2 just ran');
+  async step1 () {
+    this.fs.copyTpl(
+      this.templatePath('t.html'),
+      this.destinationPath('public/index.html'),
+      { title: 'Templating with Yeoman' }
+    );
   }
 };
